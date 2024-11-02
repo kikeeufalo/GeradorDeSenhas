@@ -84,3 +84,21 @@ p {
     position: absolute;
     bottom:  0;
 }
+
+.tamanho {
+    border: 1px solid black;
+    width: 30px;
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.pos {
+    position: absolute;
+    top: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
