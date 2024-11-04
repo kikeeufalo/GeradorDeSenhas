@@ -6,11 +6,11 @@ const carcteresEspeciais = window.document.getElementById('@#?')
 const resultado = window.document.getElementById('resultado')
 const copiar = window.document.getElementById('copiar')
 
-let tam = 0
+let tam = 0 //ultimo numero visto 
 
 setInterval(() => {
     if(tamanhoSenha.value !== '') {
-        if (tamanhoSenha.value !== tam) {
+        if (tamanhoSenha.value !== tam) { //faz conque nao fique se repetindo toda hora
             gerarSenhas()
         }
         tam = tamanhoSenha.value
