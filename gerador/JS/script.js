@@ -17,13 +17,23 @@ let tam = 0 //ultimo numero visto
 let senha = ''
 
 setInterval(() => {
-    if (tamanhoSenha.value !== '') {
-        setTimeout(() => {//faz conque nao fique se repetindo toda hora
-            if (tamanhoSenha.value !== tam && tamanhoSenha.value !== 0) {
-                gerarSenhas()
-            }
-            tam = tamanhoSenha.value
-        }, 500)
+    if (tamanhoSenha.value <= 15 && tamanhoSenha.value >= 0) {
+        if (tamanhoSenha.value !== '') {
+            setTimeout(() => {//faz conque nao fique se repetindo toda hora
+                if (tamanhoSenha.value !== tam && tamanhoSenha.value !== 0) {
+                    gerarSenhas()
+                }
+                tam = tamanhoSenha.value
+            }, 500)
+        }
+    } else {
+        if (tamanhoSenha.value < 0) {
+            alert('Insira um número maior que 0')
+            tamanhoSenha.value = ''
+        } else {
+            alert('Você excedeu o limite de caracteres!')
+            tamanhoSenha.value = ''
+        }
     }
 }, 500)
 
