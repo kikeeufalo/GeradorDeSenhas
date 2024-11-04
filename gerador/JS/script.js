@@ -5,6 +5,7 @@ const nums = window.document.getElementById('123')
 const carcteresEspeciais = window.document.getElementById('@#?')
 const resultado = window.document.getElementById('resultado')
 const copiar = window.document.getElementById('copiar')
+
 const caracteresUsados = {
     ABC: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     abc: 'abcdefghijklmnopqrstuvwxyz',
