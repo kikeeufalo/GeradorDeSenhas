@@ -20,8 +20,8 @@ let senha = ''
 
 setInterval(() => {
     if (tamanhoSenha.value !== '') {
-        setTimeout(() => {
-            if (tamanhoSenha.value !== tam && tamanhoSenha.value !== 0) { //faz conque nao fique se repetindo toda hora
+        setTimeout(() => {//faz conque nao fique se repetindo toda hora
+            if (tamanhoSenha.value !== tam && tamanhoSenha.value !== 0) {
                 senha = ''
                 gerarSenhas()
             }
@@ -31,9 +31,13 @@ setInterval(() => {
 }, 500)
 
 function gerarSenhas() {
-    for (let i = 0; i < tamanhoSenha.value; i++) {
-        let senhaAleatoria = Math.floor(Math.random() * 26)
-        senha += alfabeto[senhaAleatoria]
+    if (ABC.checked) {
+        for (let i = 0; i < tamanhoSenha.value; i++) {
+            let senhaAleatoria = Math.floor(Math.random() * 26)
+            senha += alfabeto[senhaAleatoria]
+        }
+        console.log(senha)
+    } else {
+        console.log('Selecione o caracter utilizado')
     }
-    console.log(senha)
 }
