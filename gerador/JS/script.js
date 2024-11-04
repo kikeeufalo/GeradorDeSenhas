@@ -13,13 +13,13 @@ const caracteresUsados = {
     especiais: '!@#$%&*()-+?'
 };
 
-
-
 let tam = 0 //ultimo numero visto 
 let senha = ''
 
+window.document.getElementById('btn').addEventListener('click', gerarSenhas)
+
 setInterval(() => {
-    if (tamanhoSenha.value <= 15 && tamanhoSenha.value >= 0) {
+    if (tamanhoSenha.value <= 20 && tamanhoSenha.value >= 0) {
         if (tamanhoSenha.value !== '') {
             setTimeout(() => {//faz conque nao fique se repetindo toda hora
                 if (tamanhoSenha.value !== tam && tamanhoSenha.value !== 0) {
