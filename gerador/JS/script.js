@@ -18,6 +18,12 @@ let senha = ''
 
 window.document.getElementById('btn').addEventListener('click', gerarSenhas)
 
+copiar.addEventListener('click', function() {
+    let texto = resultado.value
+    navigator.clipboard.writeText(texto)
+    alert('copiado')
+})
+
 setInterval(() => {
     if (tamanhoSenha.value <= 20 && tamanhoSenha.value >= 0) {
         if (tamanhoSenha.value !== '') {
@@ -61,5 +67,5 @@ function gerarSenhas() {
         senha += charsDisponiveis[randomIndex]
     }
 
-    console.log(senha)
+    resultado.value = senha
 }
