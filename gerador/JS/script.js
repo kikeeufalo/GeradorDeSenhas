@@ -31,7 +31,7 @@ setInterval(() => {
 }, 500)
 
 function gerarSenhas() {
-    if (ABC.checked) {
+    if (ABC.checked || abc.checked || nums.checked || carcteresEspeciais.checked) {
         for (let i = 0; i < tamanhoSenha.value; i++) {
             let senhaAleatoria = Math.floor(Math.random() * 26)
             senha += alfabeto[senhaAleatoria]
