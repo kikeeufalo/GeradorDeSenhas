@@ -14,6 +14,7 @@ const caracteresUsados = {
 };
 
 
+
 let tam = 0 //ultimo numero visto 
 let senha = ''
 
