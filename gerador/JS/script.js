@@ -5,14 +5,12 @@ const nums = window.document.getElementById('123')
 const carcteresEspeciais = window.document.getElementById('@#?')
 const resultado = window.document.getElementById('resultado')
 const copiar = window.document.getElementById('copiar')
-const alfabeto = [
-    'A', 'B', 'C', 'D', 'E',
-    'F', 'G', 'H', 'I', 'J',
-    'K', 'L', 'M', 'N', 'O',
-    'P', 'Q', 'R', 'S', 'T',
-    'U', 'V', 'W', 'X', 'Y',
-    'Z'
-];
+const caracteresUsados = {
+    ABC: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    abc: 'abcdefghijklmnopqrstuvwxyz',
+    nums: '0123456789',
+    especiais: '!@#$%&*()-+?'
+};
 
 
 let tam = 0 //ultimo numero visto 
@@ -22,7 +20,6 @@ setInterval(() => {
     if (tamanhoSenha.value !== '') {
         setTimeout(() => {//faz conque nao fique se repetindo toda hora
             if (tamanhoSenha.value !== tam && tamanhoSenha.value !== 0) {
-                senha = ''
                 gerarSenhas()
             }
             tam = tamanhoSenha.value
@@ -31,13 +28,26 @@ setInterval(() => {
 }, 500)
 
 function gerarSenhas() {
-    if (ABC.checked || abc.checked || nums.checked || carcteresEspeciais.checked) {
-        for (let i = 0; i < tamanhoSenha.value; i++) {
-            let senhaAleatoria = Math.floor(Math.random() * 26)
-            senha += alfabeto[senhaAleatoria]
-        }
-        console.log(senha)
-    } else {
+    let charsDisponiveis = ''
+
+    // Verificar quais checkboxes estão selecionadas
+    if (ABC.checked) charsDisponiveis += caracteresUsados.ABC
+    if (abc.checked) charsDisponiveis += caracteresUsados.abc
+    if (nums.checked) charsDisponiveis += caracteresUsados.nums
+    if (carcteresEspeciais.checked) charsDisponiveis += caracteresUsados.especiais
+
+    // Se nenhum checkbox estiver marcado, mostrar mensagem
+    if (charsDisponiveis === '') {
         console.log('Selecione o caracter utilizado')
+        return
     }
+
+    // Randomizar a senha com base nos caracteres disponíveis
+    senha = ''
+    for (let i = 0; i < tamanhoSenha.value; i++) {
+        let randomIndex = Math.floor(Math.random() * charsDisponiveis.length)
+        senha += charsDisponiveis[randomIndex]
+    }
+
+    console.log(senha)
 }
